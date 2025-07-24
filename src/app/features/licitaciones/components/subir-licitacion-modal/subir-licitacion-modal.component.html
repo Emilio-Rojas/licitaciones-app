@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Nueva Licitación</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field class="separator" appearance="fill">
+    <mat-label>N°</mat-label>
+    <input matInput formControlName="id" type="number" />
+  </mat-form-field>
+
+  <mat-form-field class="separator" appearance="fill">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="titulo" />
+  </mat-form-field>
+
+  <mat-form-field class="separator" appearance="fill">
+    <mat-label>Organismo</mat-label>
+    <input matInput formControlName="organismo" />
+  </mat-form-field>
+
+  <mat-form-field class="separator" appearance="fill">
+    <mat-label>Fecha Cierrea</mat-label>
+    <input matInput [matDatepicker]="fechaPicker" formControlName="fechaCierre" />
+    <mat-datepicker-toggle matSuffix [for]="fechaPicker"></mat-datepicker-toggle>
+    <mat-datepicker #fechaPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="separator" appearance="fill">
+    <mat-label>Estado</mat-label>
+    <mat-select formControlName="estado">
+      <mat-option *ngFor="let e of ['Abierta', 'Cerrada', 'Adjudicada']" [value]="e">{{ e }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="separator" appearance="fill">
+    <mat-label>Segmento</mat-label>
+    <mat-select formControlName="segmento">
+      <mat-option *ngFor="let s of ['CORP', 'GGEE', 'PYME']" [value]="s">{{ s }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="separator" appearance="fill">
+    <mat-label>Presupuesto</mat-label>
+    <input matInput formControlName="presupuesto" />
+  </mat-form-field>
+
+  <mat-form-field class="separator" appearance="fill">
+    <mat-label>Producto / Servicio</mat-label>
+    <input matInput formControlName="productoServicio" />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="primary" (click)="guardar()">Guardar</button>
+</mat-dialog-actions>

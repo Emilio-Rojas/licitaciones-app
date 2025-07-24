@@ -1,0 +1,32 @@
+.sidebar {
+  width: 220px;
+  height: 100%;
+  background-color: #082944;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  a {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+
+    mat-icon {
+      margin-right: 8px;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      font-weight: bold;
+    }
+  }
+}
